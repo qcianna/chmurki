@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Informacje</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body style="padding: 100px">
+    <div>
+        <p>Imię i nazxwisko: {{searched_person[0]['p']["name"]}} </p>
+        <p>Rok urodzenia: {{searched_person[0]['p']["born"]}} </p>
+    </div>
+    <div>
+        <p class="h3">Filmy</p>
+        <ul class="list-group list-group-flush">
+            {% for row in movies %}
+              <li class="list-group-item">{{row['m']['title']}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div style="padding-top: 20px">
+        <button onclick="location.href='{{ url_for('index') }}'" type="button" class="btn btn-secondary btn-lg">Powrót</button>
+    </div>
+</body>
+</html>

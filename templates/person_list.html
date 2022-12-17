@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista osób</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body style="padding: 100px">
+<table class="table table-hover">
+         <thead>
+            <tr>
+                <th>Rok urodzenia</th>
+                <th>Imię i nazwisko</th>
+            </tr>
+        </thead>
+        {% for row in Person %}
+        <tr>
+            <td>{{row['p']['born']}}</td>
+            <td>{{ row['p']['name']}}</td>
+        </tr>
+        {% endfor %}
+</table>
+<div style="padding-top: 20px">
+    <button onclick="location.href='{{ url_for('index') }}'" type="button" class="btn btn-secondary btn-lg">Powrót</button>
+</div>
+</body>
+</html>

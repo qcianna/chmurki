@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body style="padding: 100px">
+    <div>
+        <p>Tytuł: {{searched_movie[0]['m']["title"]}} </p>
+        <p>Opis: {{searched_movie[0]['m']["tagline"]}} </p>
+        <p>Data wydania: {{searched_movie[0]['m']['released']}} </p>
+    </div>
+    <div>
+        <p class="h3">Aktorzy</p>
+        <ul class="list-group list-group-flush">
+            {% for row in actors %}
+              <li class="list-group-item">{{row['p']['name']}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <p class="h3">Reżyserzy</p>
+        <ul class="list-group list-group-flush">
+            {% for row in directors %}
+              <li class="list-group-item">{{row['p']['name']}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div style="padding-top: 20px">
+        <button onclick="location.href='{{ url_for('index') }}'" type="button" class="btn btn-secondary btn-lg">Powrót</button>
+    </div>
+</body>
+</html>

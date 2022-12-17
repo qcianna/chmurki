@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj aktora do filmu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body style="padding: 100px">
+    <form action="{{ url_for('add_actor_movie') }}" method="post">
+        <div class="mb-3">
+            <select name="name">
+                {% for row in actors %}
+                <option value="{{ row['p']['name'] }}">{{ row['p']['name'] }}</option>
+                {% endfor %}
+            </select>
+            <select name="title">
+                {% for row in movies %}
+                <option value="{{ row['m']['title'] }}">{{ row['m']['title'] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div style="padding-top: 20px">
+            <input class="btn btn-primary" type="submit" value="Dodaj relację">
+        </div>
+    </form>
+    <div style="padding-top: 20px">
+        <button onclick="location.href='{{ url_for('index') }}'" type="button" class="btn btn-secondary btn-lg">Powrót</button>
+    </div>
+</body>
+</html>
